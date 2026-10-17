@@ -12,7 +12,7 @@ public class InsertVehiculoTest {
 
 	public static void main(String[] args) {
 
-		Vehiculo vehiculo = new Vehiculo("PDA-1521", "KIA", "Rio", 2019, 20000.99, "Rojo", true);
+		Vehiculo vehiculo = new Vehiculo("PDA-8639", "KIA", "Rio", 2019, 20000.99, "Rojo", true, 20000);
 		InsertVehiculo.insertar(vehiculo);
 	}
 }

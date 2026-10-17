@@ -28,7 +28,8 @@ public class UpdateVehiculo {
 				anio = ?,
 				precio = ?,
 				color = ?,
-				disponible = ?
+				disponible = ?,
+				kilometraje = ?
 				WHERE placa = ?;
 				""";
 
@@ -42,21 +43,23 @@ public class UpdateVehiculo {
 			ps.setDouble(4, vehiculo.getPrecio());
 			ps.setString(5, vehiculo.getColor());
 			ps.setBoolean(6, vehiculo.isDisponible());
-			//condicion WHERE
-			ps.setString(7, vehiculo.getPlaca());
-			
+			ps.setInt(7, vehiculo.getKilometraje());
+			// condicion WHERE
+			ps.setString(8, vehiculo.getPlaca());
+
 			int filas = ps.executeUpdate();
-			log.info("Filas actualizadas: " + filas);	
+			log.info("Filas actualizadas: " + filas);
 		} catch (Exception e) {
 			log.error("Ocurrio un error al actualizar vehiculo: " + e.getMessage());
-			
-		}finally {
+
+		} finally {
 			try {
 				con.close();
 				ps.close();
 				log.info("Conexion cerrada");
 			} catch (SQLException e2) {
-				log.error("Ocurrio un error al cerrar la conexion: " + e2.getMessage());		}
+				log.error("Ocurrio un error al cerrar la conexion: " + e2.getMessage());
+			}
 		}
 
 	}
