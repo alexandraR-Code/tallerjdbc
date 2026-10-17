@@ -14,10 +14,14 @@ public class SelectVehiculo {
 
 	private static final Logger log = LogManager.getLogger(SelectVehiculo.class);
 
-	public static void select() {
-		Connection con = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
+	public static void select() { // Método estático: se llama sin crear objeto; consulta (SELECT) y lista los
+									// vehículos
+		Connection con = null; // Connection: conexión abierta con PostgreSQL; null al inicio para poder
+								// cerrarla en el finally
+		PreparedStatement ps = null; // PreparedStatement: sentencia SQL precompilada que usa parámetros ? (evita
+										// inyección SQL)
+		ResultSet rs = null; // ResultSet: tabla de resultados del SELECT; se recorre fila por fila con
+								// rs.next()
 
 		String sql = """
 				SElECT placa, marca, modelo, anio, precio, color, disponible FROM vehiculos;
