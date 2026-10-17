@@ -7,10 +7,12 @@ import java.sql.SQLException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.krakedev.entidades.Vehiculo;
+
 public class InsertVehiculo {
 	private static final Logger log = LogManager.getLogger(InsertVehiculo.class);
 
-	public void insertar() {
+	public static void insertar(Vehiculo vehiculo) {
 		Connection con = null;
 		PreparedStatement ps = null;
 
@@ -22,13 +24,13 @@ public class InsertVehiculo {
 		try {
 			con = Conexion.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setString(1, "PDA-1548");
-			ps.setString(2, "KIA");
-			ps.setString(3, "Rio");
-			ps.setInt(4, 2020);
-			ps.setDouble(5, 25.000);
-			ps.setString(6, "Rojo");
-			ps.setBoolean(7, true);
+			ps.setString(1, vehiculo.getPlaca());
+			ps.setString(2, vehiculo.getMarca());
+			ps.setString(3, vehiculo.getModelo());
+			ps.setInt(4, vehiculo.getAnio());
+			ps.setDouble(5, vehiculo.getPrecio());
+			ps.setString(6, vehiculo.getColor());
+			ps.setBoolean(7, vehiculo.isDisponible());
 
 			int filas = ps.executeUpdate();
 
