@@ -10,8 +10,8 @@ public class Conexion {
 
 	private static final Logger log = LogManager.getLogger(Conexion.class);
 
-	private static final String URL = "jdbc:postgresql://localhost:5432/tallerjdbc";
-	private static final String USER = "postgres";
+	private static final String URL = "jdbc:mysql://localhost:3306/jdbc";
+	private static final String USER = "root";
 	private static final String PASSWORD = "Maribel1995.";
 
 	public static Connection getConnection() {

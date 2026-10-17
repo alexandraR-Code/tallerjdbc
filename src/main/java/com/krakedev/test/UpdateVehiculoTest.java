@@ -12,7 +12,7 @@ public class UpdateVehiculoTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Vehiculo vehiculo = new Vehiculo("PDA-1515", "Cherry", "Tigo 7", 2020, 15000, "negro", true, 2000);
+		Vehiculo vehiculo = new Vehiculo("PDA-8559", "Cherry", "Tigo 7", 2020, 15000, "Verde", true, 2000);
 
 		UpdateVehiculo.update(vehiculo);
 
